@@ -20,12 +20,11 @@ fn main() -> InquireResult<()> {
                     panic!("No URL was provided!");
                 }
                 let command: CloneCommand = match args.args.len() {
-                    1 => CloneCommand::new(&args.args[0], None),
-                    2 => CloneCommand::new(&args.args[0], Some(&args.args[1])),
+                    1 => CloneCommand::new(args.args[0].clone(), None),
+                    2 => CloneCommand::new(args.args[0].clone(), Some(args.args[1].clone())),
                     _ => panic!("Too many arguments!"),
                 };
                 command.run();
-
             }
             _ => {
                 println!("Command '{}' not found!", command.as_str());
