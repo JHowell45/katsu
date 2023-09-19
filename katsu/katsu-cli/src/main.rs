@@ -1,4 +1,5 @@
 mod commands;
+mod configs;
 
 use clap::Parser;
 use commands::clone::CloneCommand;
